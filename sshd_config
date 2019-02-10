@@ -1,0 +1,7 @@
+Port 22
+PermitRootLogin yes
+AuthorizedKeysFile      .ssh/authorized_keys
+AllowTcpForwarding yes
+GatewayPorts yes
+UseDNS no
+Subsystem       sftp    /usr/lib/ssh/sftp-server
