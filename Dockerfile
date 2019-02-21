@@ -16,5 +16,5 @@ RUN apk -q --no-progress update &&      \
 	openssh			&&	\
      mkdir -p /root/.ssh && chmod 0700 /root/.ssh
 COPY sshd_config /etc/ssh/sshd_config
-CMD ["/bin/bash"]
-
+COPY profile /root/.profile
+CMD ["/bin/bash", "-l"]
