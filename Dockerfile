@@ -16,6 +16,8 @@ RUN apk -q --no-progress update &&      \
 	perl				\
 	socat				\
 	stunnel				\
+	python				\
+	python3				\
 	openssh			&&	\
      mkdir -p /root/.ssh && chmod 0700 /root/.ssh
 COPY sshd_config /etc/ssh/sshd_config
