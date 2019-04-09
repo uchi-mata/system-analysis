@@ -13,6 +13,9 @@ RUN apk -q --no-progress update &&      \
         libcap                          \
         net-tools                       \
         bind-tools			\
+	perl				\
+	socat				\
+	stunnel				\
 	openssh			&&	\
      mkdir -p /root/.ssh && chmod 0700 /root/.ssh
 COPY sshd_config /etc/ssh/sshd_config
