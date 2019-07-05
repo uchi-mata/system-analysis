@@ -16,6 +16,7 @@ RUN apt-get -qy update                  &&  \
         screen                              \
         socat                               \
         stunnel                             \
+        tcpdump                             \
         tmux                                \
         vim                                 \
         wget                            &&  \
