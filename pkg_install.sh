@@ -5,6 +5,8 @@ apt-get -qy install                     \
     git                                 \
     golang-go                           \
     iproute2                            \
+    iputils-ping                        \
+    libcap2-bin                         \
     net-tools                           \
     nmap                                \
     netcat                              \
