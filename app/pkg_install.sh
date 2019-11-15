@@ -1,8 +1,13 @@
+apt-get -qy update
+apt-get -qy full-upgrade
 apt-get -qy install                     \
+    apt-transport-https                 \
+    ca-certificates                     \
     curl                                \
     dnsutils                            \
     gcc                                 \
     git                                 \
+    gnupg-agent                         \
     golang-go                           \
     iproute2                            \
     iputils-ping                        \
@@ -15,11 +20,19 @@ apt-get -qy install                     \
     python3-pip                         \
     screen                              \
     socat                               \
+    software-properties-common          \
     stunnel                             \
     tcpdump                             \
     tmux                                \
     vim                                 \
     wget
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
+apt-get -qy update
+apt-get -qy install docker-ce docker-ce-cli containerd.io
 rm -f /etc/ssh/ssh_host*
 mkdir -p /root/.ssh
 chmod 0700 /root/.ssh
